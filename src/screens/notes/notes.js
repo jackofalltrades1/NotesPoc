@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Container, Row, Col, Form, Button, Alert, ListGroup } from 'react-bootstrap';
+import { Form, Button } from 'react-bootstrap';
 import ModalNotification from '../../shared/components/ModalNotification';
 import { addNote, editNote, deleteNote } from '../../store/actions/notes/notesAction';
+import NotesList from '../notes/components/NotesList';
 
 export default function Notes(props) {
 
@@ -98,19 +99,8 @@ export default function Notes(props) {
     return (
         <div className="main-wrp container-fluid">
             <div className="row notes-block">
-                <div className="col-md-4 left-col notesList">
-                    {(objNotesList === undefined || objNotesList.length < 1)  && <p className="no-list">No Notes found</p>}
-                    {objNotesList !== undefined && objNotesList.map((note, id) => (
-                        <ListGroup>
-                            <ListGroup.Item action onClick={() => loadNote(note.id)}>
-                                <h3>{note.title}</h3>
-                                <p>{note.descrip}</p>
-                            </ListGroup.Item>
-                            <Button className="list-remove-btn" onClick={() => deleteNotes(note.id)}>X</Button>
-                        </ListGroup>
-                    ))
-                    }
-                </div>
+                
+                <NotesList objNotesList={objNotesList} loadNote={loadNote} deleteNotes={deleteNotes} />
                 <div className="col-md-8 right-col notes-form">
                     <div className="col-md-12 form-btn-wrp">
                         <Button variant="primary" type="button" onClick={() => loadNew()}>

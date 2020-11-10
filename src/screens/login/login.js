@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { Container, Row, Col, Form, Button, Alert } from 'react-bootstrap';
-import ShowNotification from '../../shared/components/ShowNotification';
+import { Row, Col, Form, Button } from 'react-bootstrap';
 import ModalNotification from '../../shared/components/ModalNotification';
 import { loginAction } from "../../store/actions/login/LoginAction";
 import validateLoginService from '../../service/UserAuthenticationService';
@@ -19,7 +18,6 @@ export default function Login(props) {
         title: "",
         msg: "",
     });
-    const [errorMsg, seterrorMsg] = useState("");
 
     const submitDetails = async (event) => {
         debugger;
@@ -29,9 +27,7 @@ export default function Login(props) {
         if (form.checkValidity() === false) {
             event.preventDefault();
             event.stopPropagation();
-        } else {
-            let form = event.target;
-
+        } else {            
             var objResponse = await validateLoginService(objLogin);
 
             if (objResponse.isAuth) {
@@ -41,10 +37,8 @@ export default function Login(props) {
                     msg: "Logged in successfully",
                     title: "Success",
                     returnUrl : "/Notes"
-                });
-                //alert("Success");
-                dispatch(loginAction(objResponse));
-                //props.redirect();
+                });                
+                dispatch(loginAction(objResponse));                
             } else {
                 setObjAlert({
                     ...objAlert,
@@ -53,7 +47,6 @@ export default function Login(props) {
                     title: "Login Failed",
                     returnUrl: ""
                 });
-                seterrorMsg("Invalid credentials");
             }
         }
         event.preventDefault();
@@ -87,7 +80,7 @@ export default function Login(props) {
                                 }}
                             ></Form.Control>
                             <Form.Text className="text-muted">
-                                Email : test@gmail.com  Password : 123
+                                Email : any email address 
     </Form.Text>
                             <Form.Control.Feedback type="invalid">
                                 Please enter valid email address
@@ -103,6 +96,9 @@ export default function Login(props) {
                                 onChange={(e) => {
                                     setObjLogin({ ...objLogin, password: e.target.value });
                                 }} />
+                            <Form.Text className="text-muted">
+                                Password : 123
+    </Form.Text>
                             <Form.Control.Feedback type="invalid">
                                 Please enter your valid password
             </Form.Control.Feedback>
@@ -115,14 +111,15 @@ export default function Login(props) {
                 </Col>
             </Row>
 
-            <ShowNotification
+            {/* <ShowNotification
                 show={objAlert.show}
                 title={objAlert.title}
                 msg={objAlert.msg}
                 handleClose={() => {                    
                     setObjAlert({ ...objAlert, show: false });
                 }}
-            />
+            /> */}
+
             <ModalNotification
                 show={objAlert.show}
                 title={objAlert.title}

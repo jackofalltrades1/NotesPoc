@@ -1,6 +1,6 @@
 import logo from './logo.svg';
-import Login from './screens/login/login';
-import Notes from './screens/notes/notes';
+import Login from './screens/login/Login';
+import Notes from './screens/notes/Notes';
 import Header from './shared/layout/Header';
 import Footer from './shared/layout/Footer';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";

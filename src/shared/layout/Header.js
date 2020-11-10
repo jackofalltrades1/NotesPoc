@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Container, Row, Col, Nav, Navbar } from 'react-bootstrap';
+import { Nav, Navbar } from 'react-bootstrap';
 import { logoutAction } from '../../store/actions/login/LoginAction';
 
 export default function Header() {
@@ -14,7 +14,7 @@ export default function Header() {
     }
     return (
         <Navbar expand="lg" variant="light" bg="light" >
-            <Navbar.Brand href="#">Notes</Navbar.Brand>
+            <Navbar.Brand href="#">G Notes</Navbar.Brand>
 
             {userDetails.isAuth && <Nav className="">
                 <Navbar.Text>
