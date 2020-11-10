@@ -115,6 +115,9 @@ a.navbar-brand {
     align-items: center;
     flex-wrap: wrap;
 }
+.login-btn {
+    margin: auto;
+}
 @media (min-width: 300px) and (max-width: 767px) {
     .login-form {
         width: 95%;

@@ -1,8 +1,7 @@
 import logo from './logo.svg';
 import Login from './screens/login/Login';
-import Notes from './screens/notes/Notes';
+import Notes from '../src/screens/notes/Notes';
 import Header from './shared/layout/Header';
-import Footer from './shared/layout/Footer';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import { createStore, combineReducers } from 'redux';

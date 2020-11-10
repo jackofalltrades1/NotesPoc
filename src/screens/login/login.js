@@ -27,7 +27,7 @@ export default function Login(props) {
         if (form.checkValidity() === false) {
             event.preventDefault();
             event.stopPropagation();
-        } else {            
+        } else {
             var objResponse = await validateLoginService(objLogin);
 
             if (objResponse.isAuth) {
@@ -36,9 +36,9 @@ export default function Login(props) {
                     show: true,
                     msg: "Logged in successfully",
                     title: "Success",
-                    returnUrl : "/Notes"
-                });                
-                dispatch(loginAction(objResponse));                
+                    returnUrl: "/Notes"
+                });
+                dispatch(loginAction(objResponse));
             } else {
                 setObjAlert({
                     ...objAlert,
@@ -80,7 +80,7 @@ export default function Login(props) {
                                 }}
                             ></Form.Control>
                             <Form.Text className="text-muted">
-                                Email : any email address 
+                                Email : any email address
     </Form.Text>
                             <Form.Control.Feedback type="invalid">
                                 Please enter valid email address
@@ -98,15 +98,19 @@ export default function Login(props) {
                                 }} />
                             <Form.Text className="text-muted">
                                 Password : 123
-    </Form.Text>
+                            </Form.Text>
                             <Form.Control.Feedback type="invalid">
                                 Please enter your valid password
-            </Form.Control.Feedback>
-                        </Form.Group>                        
-                        
-                        <Button variant="primary" type="submit">
-                            Submit
-  </Button>
+                            </Form.Control.Feedback>
+                        </Form.Group>
+
+                        <Form.Group as={Row}>
+                            <Col sm={{ span: 10, offset: 8 }}>
+                                <Button variant="primary" type="submit">
+                                    Login
+                                </Button>
+                            </Col>
+                        </Form.Group>
                     </Form>
                 </Col>
             </Row>
@@ -124,7 +128,7 @@ export default function Login(props) {
                 show={objAlert.show}
                 title={objAlert.title}
                 msg={objAlert.msg}
-                handleClose={() => {                    
+                handleClose={() => {
                     setObjAlert({ ...objAlert, show: false })
                     debugger;
                     if (objAlert.returnUrl !== "") {
