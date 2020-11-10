@@ -1,13 +1,9 @@
-import validateLogin from '../../../service/UserAuthenticationService';
 
-export const loginAction = (loginRes) => {
-    //var loginRes = await validateLogin(objDat);
+export const loginAction = (loginRes) => {    
     if (loginRes.isAuth)
         return{ type: "setUserDetails", userDetails: loginRes };
 };
 
-export const logoutAction = () => {
-    //var loginRes = await validateLogin(objDat);
-    //    if (loginRes.isAuth)
+export const logoutAction = () => {    
     return { type: "setLogout" };
 };

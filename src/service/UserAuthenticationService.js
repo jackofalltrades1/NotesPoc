@@ -1,22 +1,20 @@
-import React from 'react';
-
 const validateLoginService = (objDat) => {
     debugger;
     //if (objDat.email === 'test@gmail.com' && objDat.password === "123") {
     if (objDat.password === "123") {        
-        var res = {
+        var successRes = {
             isAuth: true,
             username: objDat.email
         };
 
-        return res;
+        return successRes;
     }
     else {
-        var res = {
+        var failureRes = {
             isAuth: false,
             username: ''
         };
-        return res;
+        return failureRes;
     }        
 }
 

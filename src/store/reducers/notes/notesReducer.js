@@ -9,8 +9,7 @@ const UserReducer = (state, action) => {
             return {
                 ...state,
                 notesList: [...state.notesList, action.objNote]
-            };
-            break;
+            };            
 
         case "editNote":
             return {
@@ -22,16 +21,18 @@ const UserReducer = (state, action) => {
                     }
                         : note)
             };
-            break;
+
         case "deleteNote":
             return {
                 ...state,
                 notesList: state.notesList.filter(s => s.id !== action.id)
             };
-            break;
+
+        default:
+            return state;
     }
 
-    return state;
+    //return state;
 };
 
 export default UserReducer;

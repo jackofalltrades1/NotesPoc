@@ -18,7 +18,7 @@ export default function Header() {
 
             {userDetails.isAuth && <Nav className="">
                 <Navbar.Text>
-                    Hi <a href="#">{userDetails.username}</a>
+                    Hi {userDetails.username}
                 </Navbar.Text>                
                 <Nav.Link eventKey={2} href="#" onClick={() => logout()}>
                     Logout

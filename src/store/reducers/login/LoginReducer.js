@@ -15,7 +15,6 @@ const UserReducer = (state, action) => {
                 isAuth: true,
                 userDetails: action.userDetails,
             };
-            break;
         
         case "setLogout":
             return {
@@ -25,10 +24,10 @@ const UserReducer = (state, action) => {
                 },
                 isAuth: false,
             };
-            break;       
-    }
 
-    return state;
+        default:
+            return state;
+    }
 };
 
 export default UserReducer;

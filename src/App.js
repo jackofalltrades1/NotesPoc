@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+//import logo from './logo.svg';
 import Login from './screens/login/Login';
 import Notes from '../src/screens/notes/Notes';
 import Header from './shared/layout/Header';
